@@ -118,9 +118,9 @@ public class HomeFragment1  extends Fragment {
     private void initData(){
         mList.add(new ImageBean(R.mipmap.a));
         mList.add(new ImageBean(R.mipmap.b));
-        mList.add(new ImageBean(R.mipmap.a));
-        mList.add(new ImageBean(R.mipmap.b));
-        mList.add(new ImageBean(R.mipmap.a));
+        mList.add(new ImageBean(R.mipmap.xie));
+        mList.add(new ImageBean(R.mipmap.tai));
+        mList.add(new ImageBean(R.mipmap.wen));
     }
 
 }
