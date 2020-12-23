@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import com.example.ourfirst.R;
 import com.example.ourfirst.fragment.HomePageFragment;
@@ -28,7 +29,7 @@ public class Apply_infoListActivity extends AppCompatActivity {
     Intent intent;
     byte[] imagedata;
     Bitmap imagebm;
-    String username,stu_name;
+    String username,stu_name,TABLENAME;
     int stu_id,create_id,club_id;
     DatabaseHelper myhelper;
     Button myinfor,applyinfor;
@@ -51,14 +52,14 @@ public class Apply_infoListActivity extends AppCompatActivity {
             }
             sdb.close();
         }
-        SQLiteDatabase sdb2=myhelper.getReadableDatabase();
-        Cursor cursor3 = sdb2.rawQuery("select * from club where club_create_id=?", new String[]{String.valueOf(create_id)});
-        if (cursor3 != null && cursor3.getColumnCount() > 0) {
-            while (cursor3.moveToNext()) {
-                club_id = cursor3.getInt(0);
-                cursor3.close();
+        SQLiteDatabase sdb6=myhelper.getWritableDatabase();
+        Cursor cursor6 = sdb6.rawQuery("select * from club where club_create_id=?", new String[]{String.valueOf(create_id)});
+        if (cursor6 != null && cursor6.getColumnCount() > 0) {
+            while (cursor6.moveToNext()) {
+                club_id = cursor6.getInt(0);
+                cursor6.close();
             }
-            sdb2.close();
+            sdb6.close();
         }
         
         item = new HashMap<String, Object>();  // 为列表项赋值
@@ -123,6 +124,20 @@ public class Apply_infoListActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+//        TABLENAME="resume";
+//        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+//            @Override
+//            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+//                String delId = data.get(position).get("resume_id").toString();
+//                if(db.delete(TABLENAME,"resume_id=?",new String[]{delId}) > 0) {
+//                    Toast.makeText(getApplicationContext(), "删除成功，请刷新", Toast.LENGTH_SHORT).show();
+//                    return true;
+//                }
+//                else {
+//                    return false;
+//                }
+//            }
+//        });
         applyinfor=findViewById(R.id.applyinfo);
         applyinfor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,6 +160,7 @@ public class Apply_infoListActivity extends AppCompatActivity {
                 startActivity(intent2);
             }
         });
+
     }
 
 
