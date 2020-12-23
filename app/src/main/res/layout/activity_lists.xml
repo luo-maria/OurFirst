@@ -12,10 +12,10 @@
         android:id="@+id/image"
         android:layout_width="140dp"
         android:layout_height="110dp"
-        android:layout_marginLeft="10dp"
         android:layout_marginBottom="0dp"
         android:layout_marginTop="0dp"
         android:src="@mipmap/moren"
+        android:layout_marginLeft="10dp"
         android:clickable="true"
         android:focusable="false" />
     <LinearLayout
@@ -41,7 +41,7 @@
                 android:layout_alignParentLeft="true"
                 android:textColor="@color/skin_topbar_bg_color"
                 android:textAlignment="gravity"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_marginTop="8dp"
@@ -62,7 +62,7 @@
                 android:focusable="false"
                 android:text="发布人"
                 android:layout_marginTop="5dp"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textColor="@color/gary">
             </TextView></LinearLayout>
         </RelativeLayout>
@@ -76,11 +76,11 @@
             android:id="@+id/activity_intro"
             android:focusable="false"
             android:layout_width="match_parent"
-            android:layout_height="72dp"
+            android:layout_height="65dp"
             android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="2dp"
-            android:textSize="16dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:textSize="14dp"
             android:text="详细介绍"
             android:textColor="@color/black"/>
     </LinearLayout>
