@@ -87,7 +87,7 @@ public class Search_club extends AppCompatActivity {
         sp1.setAdapter(adapter1);
         campus = (String) sp1.getSelectedItem();
         System.out.println("campus:"+campus);
-        String[] ktype = new String[]{"公益", "文艺", "学术", "文体", "其他"};
+        String[] ktype = new String[]{"公益",  "学术", "文体", "其他"};
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ktype);  //创建一个数组适配器
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);     //设置下拉列表框的下拉选项样式
         sp2.setAdapter(adapter2);
@@ -113,7 +113,6 @@ public class Search_club extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 intent = new Intent(Search_club.this, Club_detailActivity.class);
                 intent.putExtra("id", data.get(position).get("club_id").toString());
-                // 获取该列表项的key为id的键值，即商品的id，将其储存在Bundle传递给打开的页面
                 intent.putExtra("username",username);
                 startActivity(intent);
             }

@@ -101,7 +101,6 @@ public class MyclubsActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 intent = new Intent(MyclubsActivity.this, Club_detailActivity2.class);
                 intent.putExtra("id", data.get(position).get("club_id").toString());
-                // 获取该列表项的key为id的键值，即商品的id，将其储存在Bundle传递给打开的页面
                 intent.putExtra("username",username);
                 startActivity(intent);
             }

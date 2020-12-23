@@ -102,8 +102,10 @@ public class Apply_infoListActivity extends AppCompatActivity {
                 @Override
                 public boolean setViewValue(View view, Object data, String textRepresentation) {
                     if(view instanceof ImageView && data instanceof Bitmap){
-                        ImageView iv = (ImageView)view;
-                        iv.setImageBitmap( (Bitmap)data );
+                        if(data!=null){
+                            ImageView iv = (ImageView)view;
+                            iv.setImageBitmap( (Bitmap)data );
+                        }
                         return true;
                     }else{
                         return false;
