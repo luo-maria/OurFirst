@@ -93,7 +93,7 @@ public class CreateClubActivity extends AppCompatActivity {
         sp1 = (Spinner) findViewById(R.id.campus);
         campus = (String) sp1.getSelectedItem();
         System.out.println("这里是校区："+campus);
-        String[] ktype = new String[]{"公益", "文艺","学术","文体","其他"};
+        String[] ktype = new String[]{"公益", "学术","文体","其他"};
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ktype);  //创建一个数组适配器
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);     //设置下拉列表框的下拉选项样式
         Spinner spinner2 = (Spinner) super.findViewById(R.id.kind);

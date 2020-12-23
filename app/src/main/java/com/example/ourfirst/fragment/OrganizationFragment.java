@@ -142,7 +142,7 @@ public class OrganizationFragment extends Fragment {
             sp1.setAdapter(adapter1);
             campus = (String) sp1.getSelectedItem();
             System.out.println("campus:"+campus);
-            String[] ktype = new String[]{"公益", "文艺", "学术", "文体", "其他"};
+            String[] ktype = new String[]{"公益", "学术", "文体", "其他"};
             ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(OrganizationFragment.this.getContext(), android.R.layout.simple_spinner_item, ktype);  //创建一个数组适配器
             adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);     //设置下拉列表框的下拉选项样式
             sp2.setAdapter(adapter2);
