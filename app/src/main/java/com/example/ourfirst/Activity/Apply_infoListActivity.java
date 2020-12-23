@@ -95,21 +95,24 @@ public class Apply_infoListActivity extends AppCompatActivity {
         item.put("image",imagebm);
         data.add(item); // 加入到列表中
         // 使用SimpleAdapter布局listview
-        SimpleAdapter simpleAdapter = new SimpleAdapter(this, data, R.layout.infoitem, new String[] { "image", "stu_name", "stu_intro", "apply_time"},
-                new int[] { R.id.infoph, R.id.infoname, R.id.infotext, R.id.infotime });
-        simpleAdapter.setViewBinder(new SimpleAdapter.ViewBinder() {
-            @Override
-            public boolean setViewValue(View view, Object data, String textRepresentation) {
-                if(view instanceof ImageView && data instanceof Bitmap){
-                    ImageView iv = (ImageView)view;
-                    iv.setImageBitmap( (Bitmap)data );
-                    return true;
-                }else{
-                    return false;
+        if(stu_name!=null){
+            SimpleAdapter simpleAdapter = new SimpleAdapter(this, data, R.layout.infoitem, new String[] { "image", "stu_name", "stu_intro", "apply_time"},
+                    new int[] { R.id.infoph, R.id.infoname, R.id.infotext, R.id.infotime });
+            simpleAdapter.setViewBinder(new SimpleAdapter.ViewBinder() {
+                @Override
+                public boolean setViewValue(View view, Object data, String textRepresentation) {
+                    if(view instanceof ImageView && data instanceof Bitmap){
+                        ImageView iv = (ImageView)view;
+                        iv.setImageBitmap( (Bitmap)data );
+                        return true;
+                    }else{
+                        return false;
+                    }
                 }
-            }
-        });
-        listView.setAdapter(simpleAdapter);
+            });
+            listView.setAdapter(simpleAdapter);
+        }
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -124,20 +127,6 @@ public class Apply_infoListActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-//        TABLENAME="resume";
-//        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-//            @Override
-//            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-//                String delId = data.get(position).get("resume_id").toString();
-//                if(db.delete(TABLENAME,"resume_id=?",new String[]{delId}) > 0) {
-//                    Toast.makeText(getApplicationContext(), "删除成功，请刷新", Toast.LENGTH_SHORT).show();
-//                    return true;
-//                }
-//                else {
-//                    return false;
-//                }
-//            }
-//        });
         applyinfor=findViewById(R.id.applyinfo);
         applyinfor.setOnClickListener(new View.OnClickListener() {
             @Override

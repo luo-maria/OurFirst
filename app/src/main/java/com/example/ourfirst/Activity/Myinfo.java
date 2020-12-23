@@ -84,35 +84,37 @@ public class Myinfo extends AppCompatActivity {
         System.out.println(imagebm+club_name+back_time);
         SQLiteDatabase db=myhelper.getWritableDatabase();
         System.out.println("这是Apply_infoListActivity的resume_info_back_id:"+resume_info_back_id);
-        SimpleAdapter simpleAdapter = new SimpleAdapter(this, data, R.layout.myinfoitem, new String[] { "image", "club_name", "myinfo","back_time"},
-                new int[] { R.id.infoph1,R.id.infotext, R.id.infoname1,R.id.infotime1 });
-        simpleAdapter.setViewBinder(new SimpleAdapter.ViewBinder() {
-            @Override
-            public boolean setViewValue(View view, Object data, String textRepresentation) {
-                if(view instanceof ImageView && data instanceof Bitmap){
-                    ImageView iv = (ImageView)view;
-                    iv.setImageBitmap( (Bitmap)data );
-                    return true;
-                }else{
-                    return false;
+        if(club_name!=null){
+            SimpleAdapter simpleAdapter = new SimpleAdapter(this, data, R.layout.myinfoitem, new String[] { "image", "club_name", "myinfo","back_time"},
+                    new int[] { R.id.infoph1,R.id.infotext, R.id.infoname1,R.id.infotime1 });
+            simpleAdapter.setViewBinder(new SimpleAdapter.ViewBinder() {
+                @Override
+                public boolean setViewValue(View view, Object data, String textRepresentation) {
+                    if(view instanceof ImageView && data instanceof Bitmap){
+                        ImageView iv = (ImageView)view;
+                        iv.setImageBitmap( (Bitmap)data );
+                        return true;
+                    }else{
+                        return false;
+                    }
                 }
-            }
-        });
-        listView.setAdapter(simpleAdapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                intent = new Intent(Myinfo.this, My_Info_detail.class);
-                intent.putExtra("id", data.get(position).get("resume_info_back_id").toString());
-                Intent intent1=getIntent();
-                String username=intent1.getStringExtra("username");
-                intent.putExtra("username",username);
-                String data3=data.get(position).get("resume_info_back_id").toString();
-                System.out.println("这是data3:"+data3);
-                // 获取该列表项的key为id的键值，即商品的id，将其储存在Bundle传递给打开的页面
-                startActivity(intent);
-            }
-        });
+            });
+            listView.setAdapter(simpleAdapter);
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    intent = new Intent(Myinfo.this, My_Info_detail.class);
+                    intent.putExtra("id", data.get(position).get("resume_info_back_id").toString());
+                    Intent intent1=getIntent();
+                    String username=intent1.getStringExtra("username");
+                    intent.putExtra("username",username);
+                    String data3=data.get(position).get("resume_info_back_id").toString();
+                    System.out.println("这是data3:"+data3);
+                    startActivity(intent);
+                }
+            });
+        }
+
 
     }
 
