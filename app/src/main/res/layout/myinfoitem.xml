@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="110dp"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="match_parent">
+        <com.example.ourfirst.util.XCRoundImageView
+            android:id="@+id/infoph1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="5dp"
+            android:src="@mipmap/portrait"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/infoname1"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/black"
+            android:textSize="20dp"/>
+        <TextView
+            android:id="@+id/infotext"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/gary"
+            android:textSize="20dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/infotime1"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/gary"
+            android:textSize="15dp" />
+
+        <ImageView
+            android:id="@+id/redpoint"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            />
+    </LinearLayout>
+</LinearLayout>
